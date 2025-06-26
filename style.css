@@ -1,0 +1,77 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating shapes */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  animation: float 6s ease-in-out infinite;
+}
+.circle1 { width: 120px; height: 120px; top: 10%; left: 10%; }
+.circle2 { width: 80px; height: 80px; bottom: 15%; right: 10%; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Form container */
+.feedback-container {
+  background: rgba(255,255,255,0.85);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 350px;
+  animation: fadeIn 0.8s ease-out;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Inputs and button */
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: 'Times New Roman', serif;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 8px #8ec5fc;
+}
+
+button {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(to right, #764ba2, #667eea);
+  transform: scale(1.02);
+}
+
+/* Response text */
+#response {
+  margin-top: 10px;
+  color: #2ecc71;
+  text-align: center;
+  font-weight: bold;
+}
