@@ -2,27 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedback Form</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Feedback Collection</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="feedback-container">
-    <h2>Give Us Your Feedback</h2>
-    <form id="feedbackForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Feedback" required></textarea>
-      <div class="button-wrapper">
-        <div class="floating-circle circle1"></div>
-        <div class="floating-circle circle2"></div>
+  <div class="container">
+    <h1>Feedback Form</h1>
 
-        <button type="submit" id="submitBtn">Submit</button>
+    <form id="feedbackForm">
+      <!-- Name -->
+      <div class="input-wrap">
+        <input type="text" id="name" required placeholder=" " />
+        <label for="name">Name</label>
       </div>
+
+      <!-- Email -->
+      <div class="input-wrap">
+        <input type="email" id="email" required placeholder=" " />
+        <label for="email">Email</label>
+      </div>
+
+      <!-- Feedback -->
+      <div class="input-wrap textarea-wrap">
+        <textarea id="feedback" rows="4" required placeholder=" "></textarea>
+        <label for="feedback">Your Feedback</label>
+      </div>
+
+      <button type="submit">Submit</button>
     </form>
-    <div id="response"></div>
+
+    <div class="feedback-list" id="feedbackList">
+      <h2>Submitted Feedback</h2>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
