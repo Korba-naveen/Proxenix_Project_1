@@ -1,30 +1,24 @@
-const form = document.getElementById("feedbackForm");
-const button = document.getElementById("submitBtn");
+document.getElementById("feedbackForm").addEventListener("submit", e => {
+  e.preventDefault();
 
-function isFormValid() {
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
+  const name     = document.getElementById("name").value.trim();
+  const email    = document.getElementById("email").value.trim();
+  const feedback = document.getElementById("feedback").value.trim();
 
-  return name && email.includes("@") && message.length > 2;
-}
+  if (name && email && feedback) {
+    const feedbackList = document.getElementById("feedbackList");
 
-// Listen to input changes
-form.addEventListener("input", () => {
-  if (isFormValid()) {
-    button.classList.add("show");
-  } else {
-    button.classList.remove("show");
+    const entry = document.createElement("div");
+    entry.className = "feedback-entry";
+    entry.innerHTML = `
+      <strong>${name}</strong> &lt;${email}&gt;<br/>
+      ${feedback}
+    `;
+
+    feedbackList.appendChild(entry);
+
+    // Clear fields
+    e.target.reset();
   }
 });
 
-// Handle form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  if (!isFormValid()) return;
-
-  document.getElementById("response").textContent = "Thank you for your feedback!";
-  form.reset();
-  button.classList.remove("show");
-});
